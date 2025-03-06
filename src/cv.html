@@ -1,141 +1,274 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chethin Manage - Resume</title>
+    <title>CV-Details</title>
     <link rel="stylesheet" href="./output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
+    <style>
+        body {
+            background-color: #f5f6f5;
+            /* Light mode */
+        }
 
+        .dark body {
+            background-color: #111827;
+            /* Dark mode (already set as bg-gray-900) */
+        }
+
+        .label {
+            margin-right: 5px;
+            display: inline-block;
+            width: 100px;
+        }
+
+        /* Custom transitions for smoother theme switching */
+        .theme-transition {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Subtle box shadow for cards */
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .dark .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(207, 194, 194, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12);
+        }
+
+        /* .ele {
+            width: 100%;
+            height: 100%;
+            animation: fadeIn 5s infinite;
+        } */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .ele {
+            animation: spin 5s linear 1;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-900 font-sans">
+<body class=" ele bg-[#f5f6f5] dark:bg-gray-900 font-sans transition-colors duration-300 theme-transition">
 
-    <nav class=" border-gray-700">
+    <nav class=" bg-[#f5f6f5] dark:border-gray-700 bg-gray-100 dark:bg-gray-800  theme-transition">
         <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-3xl text-white font-bold">Wai Yan</h1>
-            <ul class="flex space-x-6">
-                <li><a href="about.html" class="text-white text-lg hover:text-sky-600">about</a></li>
-                <li><a href="repositories.html" class="text-white text-lg hover:text-sky-600">repositories</a></li>
-                <li><a href="cv.html" class="text-sky-400 text-lg hover:text-sky-300">cv</a></li>
-                <li><a href="teaching.html" class="text-white text-lg hover:text-sky-600">teaching</a></li>
-            </ul>
-            <!-- <div class="search-bar">
-                <input type="text" placeholder="Search..." class="px-4 py-2 bg-gray-700 text-white rounded-md border-none focus:outline-none">
-            </div> -->
+            <h1 class="ms-44 text-3xl text-gray-700 dark:text-white font-bold">Wai Yan</h1>
+            <div class="flex items-center space-x-6">
+                <ul class="flex space-x-6">
+                    <li><a href="about.html"
+                            class="text-gray-700 dark:text-gray-200 text-lg hover:text-sky-600 dark:hover:text-sky-300 transition-colors">about</a>
+                    </li>
+                    <li><a href="repositories.html"
+                            class="text-gray-700 dark:text-gray-200 text-lg hover:text-sky-600 dark:hover:text-sky-300 transition-colors">repositories</a>
+                    </li>
+                    <li><a href="cv.html"
+                            class="text-sky-600 dark:text-sky-400 text-lg hover:text-sky-800 dark:hover:text-sky-600 transition-colors font-medium">cv</a>
+                    </li>
+                    <li><a href="teaching.html"
+                            class="text-gray-700 dark:text-gray-200 text-lg hover:text-sky-600 dark:hover:text-sky-300 transition-colors">teaching</a>
+                    </li>
+                </ul>
+                <!-- Theme toggle button with improved styling -->
+                <button id="theme-toggle"
+                    class="p-2 rounded-full bg-gray-300 dark:bg-gray-400 hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors shadow-sm">
+                    <svg id="moon-icon" class="w-6 h-6 text-gray-700 hidden dark:block" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                        </path>
+                    </svg>
+                    <svg id="sun-icon" class="w-6 h-6 text-amber-500 block dark:hidden" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </nav>
-    <hr class="border-gray-500">
+    <hr class="border-gray-500 dark:border-gray-600">
+
     <div class="flex min-h-screen">
-        <!-- Sidebar -->
+        <!-- Sidebar with softer colors -->
         <div id="sidebar"
-            class="w-64 text-base text-white bg-gray-900 p-14 shadow-xl fixed left-0 top-0 h-full transform -translate-x-full transition-transform duration-300 ease-in-out md:translate-x-0">
-            <!-- <div class="p-6 border-b">
-                <h1 class="text-2xl font-bold text-gray-800">Kyaw Wai Yan</h1>
-            </div> -->
-            <nav class="p-4">
-                <ul class="space-y-2 text-xl">
+            class=" bg-[#f5f6f5] text-gray-700 dark:text-gray-200 dark:bg-gray-800 p-16  fixed left-0 top-0 h-full transform -translate-x-full transition-transform duration-300 ease-in-out md:translate-x-0 theme-transition">
+            <nav class="p-2">
+                <ul class="space-y-4 text-xl">
                     <li>
-                        <a href="#" class="sidebar-link" data-section="basics">
-                            <i data-lucide="user" class="mr-2"></i>Basics
+                        <a href="#"
+                            class="sidebar-link flex items-center py-2 px-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                            data-section="basics">
+                            <i data-lucide="user" class="mr-3 text-gray-600 dark:text-gray-400"></i>
+                            <span>Details</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="sidebar-link" data-section="work">
-                            <i data-lucide="briefcase" class="mr-2"></i>Work
+                        <a href="#"
+                            class="sidebar-link flex items-center py-2 px-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                            data-section="work">
+                            <i data-lucide="briefcase" class="mr-3 text-gray-600 dark:text-gray-400"></i>
+                            <span>Work</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="sidebar-link" data-section="certificates">
-                            <i data-lucide="award" class="mr-2"></i>Certificates
+                        <a href="#"
+                            class="sidebar-link flex items-center py-2 px-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                            data-section="certificates">
+                            <i data-lucide="award" class="mr-3 text-gray-600 dark:text-gray-400"></i>
+                            <span>Education</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="sidebar-link" data-section="languages">
-                            <i data-lucide="globe" class="mr-2"></i>Languages
+                        <a href="#"
+                            class="sidebar-link flex items-center py-2 px-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                            data-section="languages">
+                            <i data-lucide="globe" class="mr-3 text-gray-600 dark:text-gray-400"></i>
+                            <span>Languages</span>
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
 
-        <!-- Mobile Menu Toggle -->
-        <button id="sidebar-toggle" class="fixed top-4 left-4 z-50 md:hidden">
-            <i data-lucide="menu" class="text-gray-700 w-8 h-8"></i>
+        <!-- Mobile Menu Toggle with better contrast -->
+        <button id="sidebar-toggle"
+            class="fixed ms-0 mt-1 left-4 z-50 md:hidden bg-gray-600 dark:bg-gray-400 p-2 rounded-lg shadow-md">
+            <i data-lucide="menu" class="text-white dark:text-gray-200 w-2 h-3"> <i
+                    class="fa-solid fa-ellipsis-vertical"></i> </i>
         </button>
 
-        <!-- Main Content -->
-        <main class="flex-1 p-10 md:ml-64 transition-all duration-300">
+        <!-- Main Content with softer colors -->
+        <main class="flex-1 p-10 md:ml-64 transition-all duration-300  dark:bg-gray-900">
             <!-- Sections -->
             <section id="basics" class="section active">
-                <h2 class="text-3xl font-bold mb-6 text-white">CV</h2>
-                <p class="text-lg text-white mb-4">Some (detailed) info about me.</p>
-
-                <h3 class="text-2xl font-semibold mb-4">Basics</h3>
-
-                <div class="bg-white shadow rounded-md p-6">
-
-
-                    <div class="space-y-2">
-                        <p><strong>Name</strong> Kyaw Wai Yan</p>
-                        <p><strong>Position</strong> Backend Developer</p>
-                        <p><strong>E-mail</strong> | waiyan.toshima12@gmail.com</p>
-                        <p><strong>Phone</strong> | 090-4454-0786</p>
-
-
-                        <!-- <div class="flex items-center space-x-4">
-                            <strong>Social Profiles</strong>
-                            <a href="https://github.com/wai129yan" target="_blank" rel="noopener noreferrer">
-                                <img src="https://github.com/favicon.ico" width="25" height="25" alt="GitHub">
-                            </a>
-                            <a href="https://www.linkedin.com/in/kyaw-wai-yan-467aaa351/" target="_blank"
-                                rel="noopener noreferrer">
-                                <img src="https://static-exp1.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="25"
-                                    height="25" alt="LinkedIn">
-                            </a>
-                        </div> -->
-
-
-                       
-
+                <h2 class="text-3xl font-bold mb-6 text-gray-700 dark:text-gray-100">CV</h2>
+                <div class="bg-gray-50 dark:bg-gray-800 shadow-lg rounded-lg p-6  theme-transition">
+                    <div class="space-y-2  ">
+                        <p
+                            class="text-xl font-semibold text-purple-600 dark:text-purple-400 mb-5 border-b pb-2 border-gray-200 dark:border-gray-700">
+                            Some (detailed) info about me.</p>
+                        <p class="font-semibold text-2xl equal-spacing text-gray-700 dark:text-gray-200">
+                            <strong class="label text-gray-600 dark:text-gray-400">Name </strong> Kyaw Wai Yan
+                        </p>
+                        <p class="font-semibold text-2xl equal-spacing text-gray-700 dark:text-gray-200">
+                            <strong class="label text-gray-600 dark:text-gray-400">Position </strong> Backend Developer
+                        </p>
+                        <p class="font-semibold text-2xl equal-spacing text-gray-700 dark:text-gray-200">
+                            <strong class="label text-gray-600 dark:text-gray-400">E-mail </strong>
+                            waiyan.toshima12@gmail.com
+                        </p>
+                        <p class="font-semibold text-2xl equal-spacing text-gray-700 dark:text-gray-200">
+                            <strong class="label text-gray-600 dark:text-gray-400">Phone </strong> 090-4454-0786
+                        </p>
+                        <p class="font-semibold text-2xl equal-spacing text-gray-700 dark:text-gray-200">
+                            <strong class="label text-gray-600 dark:text-gray-400">Address </strong> Fukuoka | Japan
+                        </p>
                     </div>
                 </div>
             </section>
 
-            <section id="work" class="section hidden">
-                <h2 class="text-3xl font-bold mb-8 text-white">Work Experience</h2>
+            <section id="work" class="section hidden ms-1">
+                <h2 class="text-3xl font-bold mb-8 text-gray-700 dark:text-gray-100">Work Experience</h2>
                 <div class="space-y-6">
-                    <div class="bg-white shadow rounded-lg p-6">
-                        <h3 class="text-xl font-semibold text-purple-600">Software Developer (CO-OP)</h3>
-                        <p class="text-gray-600">Emids (formerly Macadamian) • 2022.01 - 2022.04</p>
-                        <ul class="list-disc list-inside mt-4 text-gray-700">
-                            <li>Client-side software development w/ React and TypeScript</li>
-                            <li>Propelled the platform's review scores by 20% and later led to an acquisition by Emids
+                    <div class="bg-gray-50 dark:bg-gray-800 shadow-lg rounded-lg p-6 card-shadow theme-transition">
+                        <h3
+                            class="text-xl font-semibold text-purple-600 dark:text-purple-400 mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
+                            Backend Developer (Php-Laravel-NodeJs)</h3>
+                        <ul class="list-disc list-inside mt-4 text-gray-700 dark:text-gray-300 space-y-2">
+                            <li class="text-lg">Sever-side backend development Laravel and NodeJs. </li>
+                            <li class="text-lg">Proficient in PHP (OOP), Laravel (MVC) and NodeJs, with strong skills in
+                                HTML, CSS, Tailwind CSS and JavaScript.
                             </li>
-                            <li>Designed and launched a message notification feature using Twilio and MUI</li>
+                            <li class="text-lg">Experienced in task preparation, data analysis and bridge engineering,
+                                with a focus on efficient, data-driven solutions.</li>
+                            <li class="text-lg">Cloud technologies such as AWS Lambda, Elastic Beanstalk, S3,
+                                CloudWatch, and CodeDeploy.</li>
+                            <li class="text-lg">Project management: Slack, Backlog, Chatwork, Trello and GitHub.</li>
                         </ul>
                     </div>
-                    <!-- More work experiences -->
                 </div>
             </section>
 
-            <section id="certificates" class="section hidden">
-                <h2 class="text-3xl font-bold mb-6 text-gray-800">Certificates</h2>
+            <section id="certificates" class="section hidden ">
+                <h2 class="text-3xl font-bold mb-6 text-gray-700 dark:text-gray-100">Education</h2>
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-white shadow rounded-lg p-6">
-                        <h3 class="text-xl font-semibold text-purple-600">AWS Certified Solutions Architect</h3>
-                        <p class="text-gray-600">Amazon Web Services (AWS) • 2024/09/22</p>
+                    <div class="bg-gray-50 dark:bg-gray-800 shadow-lg rounded-lg p-6 theme-transition">
+                        <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 p-4 space-y-2">
+                            <strong>
+                                <li class="text-lg mb-4">Master Degree In Zoology ( Yangon University )</li>
+                            </strong>
+                            <strong>
+                                <li class="text-lg">Diploma In IT & Web Development ( 中央情報専門学校 )</li>
+                            </strong>
+                        </ul>
                     </div>
-                    <!-- More certificates -->
+                </div>
+
+
+                <h2 class="text-3xl font-bold mt-5 text-gray-700 dark:text-gray-100">Certificates</h2>
+                <div class="grid md:grid-cols-2 gap-6 mt-5">
+                    <div class="bg-gray-50 dark:bg-gray-800 shadow-lg rounded-lg p-6  theme-transition ">
+                        <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 p-4 space-y-2">
+                            <strong>
+                                <li class="text-lg mb-4">日本語能力試験 N2</li>
+                            </strong>
+                            <strong>
+                                <li class="text-lg">共通クラウド技術検定試験３級</li>
+                            </strong>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2 class="text-3xl font-bold mb-5 mt-8 text-gray-700 dark:text-gray-100">Learning</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 dark:bg-gray-800 shadow-lg rounded-lg p-6 theme-transition">
+                        <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 p-4 space-y-2">
+                            <strong>
+                                <li class="text-lg mb-4">React</li>
+                            </strong>
+                            <strong>
+                                <li class="text-lg mb-4">English Language [TOEIC EXAM]</li>
+                            </strong>
+                            <strong>
+                                <li class="text-lg mb-4">AWS Certified Developer - Associate [EXAM]</li>
+                            </strong>
+                            <strong>
+                                <li class="text-lg">Azure, Kubernetes And Docker</li>
+                            </strong>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
             <section id="languages" class="section hidden">
-                <h2 class="text-3xl font-bold mb-6 text-gray-800">Languages</h2>
-                <div class="bg-white shadow rounded-lg p-6">
-                    <!-- Add language details here -->
+                <h2 class="text-3xl font-bold mb-6 text-gray-700 dark:text-gray-100">Languages</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 dark:bg-gray-800 shadow-lg rounded-lg p-6 theme-transition">
+                        <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 p-4 space-y-2">
+                            <strong>
+                                <li class="text-lg mb-4">Myanmar</li>
+                            </strong>
+                            <strong>
+                                <li class="text-lg mb-4">Japanese</li>
+                            </strong>
+                            <strong>
+                                <li class="text-lg">English </li>
+                            </strong>
+                        </ul>
+                    </div>
                 </div>
             </section>
         </main>
@@ -144,15 +277,60 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide-icons/0.321.0/umd/lucide.min.js"></script>
 
     <script>
+        // Set up Tailwind dark mode
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gray: {
+                            // 50: '#f9fafb',
+                            // 100: '#f3f4f6',
+                            // 200: '#e5e7eb',
+                            // 300: '#d1d5db',
+                            // 400: '#9ca3af',
+                            // 500: '#6b7280',
+                            // 600: '#4b5563',
+                            // 700: '#374151',
+                            800: '#1f2937',
+                            900: '#111827',
+                        }
+                    }
+                }
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const sidebarToggle = document.getElementById('sidebar-toggle');
             const sidebar = document.getElementById('sidebar');
             const sidebarLinks = document.querySelectorAll('.sidebar-link');
             const sections = document.querySelectorAll('.section');
+            const themeToggle = document.getElementById('theme-toggle');
+
+            // Check for saved theme preference or use OS preference
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+
+            // Theme Toggle
+            themeToggle.addEventListener('click', () => {
+                // Toggle theme
+                document.documentElement.classList.toggle('dark');
+
+                // Save preference to localStorage
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.theme = 'dark';
+                } else {
+                    localStorage.theme = 'light';
+                }
+            });
 
             // Sidebar Toggle for Mobile
             sidebarToggle.addEventListener('click', () => {
                 sidebar.classList.toggle('-translate-x-full');
+                sidebarToggle.classList.toggle('open');
             });
 
             // Section Navigation
@@ -161,9 +339,11 @@
                     e.preventDefault();
                     const sectionId = link.getAttribute('data-section');
 
-                    // Update active sidebar link
-                    sidebarLinks.forEach(l => l.classList.remove('active'));
-                    link.classList.add('active');
+                    // Update active sidebar link styles
+                    sidebarLinks.forEach(l => {
+                        l.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'font-medium');
+                    });
+                    link.classList.add('bg-gray-200', 'dark:bg-gray-700', 'font-medium');
 
                     // Show/hide sections
                     sections.forEach(section => {
@@ -179,6 +359,11 @@
 
             // Initialize Lucide Icons
             lucide.createIcons();
+
+            // Set first sidebar link as active by default
+            if (sidebarLinks.length > 0) {
+                sidebarLinks[0].classList.add('bg-gray-600', 'dark:bg-gray-100', 'font-medium');
+            }
         });
     </script>
 </body>
